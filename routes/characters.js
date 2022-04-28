@@ -63,8 +63,9 @@ router.post("/:characterId/edit", (req, res, next) => {
     weapon: req.body.weapon,
   }
 
-  Character.findByIdAndUpdate(characterId, newDetails)
-    .then( () => {
+  Character.findByIdAndUpdate(characterId, newDetails, {returnOriginal: false})
+    .then( (updatedChar) => {
+      console.log(updatedChar)
       res.redirect(`/characters/${characterId}`);
     })
     .catch( err => {

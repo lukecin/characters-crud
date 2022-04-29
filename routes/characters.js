@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const Character = require("../models/Character.model");
 
 const axios = require("axios");
 const { response } = require("../app");
